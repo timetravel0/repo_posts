@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-06T19:17:15.681112
-image: assets/SparcLab_OpenSERDES_cropped.png
 ---
 
 # [SparcLab/OpenSERDES](https://github.com/SparcLab/OpenSERDES)

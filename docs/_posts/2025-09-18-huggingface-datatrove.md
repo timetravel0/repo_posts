@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-18T19:12:40.255570
-image: assets/huggingface_datatrove--20250918T145804259--cropped.png
 ---
 
 # [huggingface/datatrove](https://github.com/huggingface/datatrove)

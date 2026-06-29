@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-02T04:49:46.872636
-image: assets/awesome-selfhosted_awesome-selfhosted_cropped.png
 ---
 
 # [awesome-selfhosted/awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted)

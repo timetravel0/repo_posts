@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2026-06-20T10:39:48.430927
-image: assets/2026-06-20-chaitanyagiri-munder-difflin.png
 ---
 
 # [chaitanyagiri/munder-difflin](https://github.com/chaitanyagiri/munder-difflin)

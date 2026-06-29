@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-15T16:06:59.378946
-image: assets/20250912T194147842--EleutherAI--lm-evaluation-harness--20250915T044109267--cropped.png
 ---
 
 # [EleutherAI/lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness)

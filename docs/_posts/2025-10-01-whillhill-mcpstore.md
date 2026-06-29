@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-01T21:46:27.746228
-image: assets/20251001T132329383--whillhill--mcpstore--20251001T132759593--cropped.png
 ---
 
 # [whillhill/mcpstore](https://github.com/whillhill/mcpstore)

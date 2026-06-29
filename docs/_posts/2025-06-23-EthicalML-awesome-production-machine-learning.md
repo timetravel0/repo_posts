@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-06-23T22:40:44.204079
-image: assets/EthicalML_awesome-production-machine-learning_cropped.png
 ---
 
 # [EthicalML/awesome-production-machine-learning](https://github.com/EthicalML/awesome-production-machine-learning)

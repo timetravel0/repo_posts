@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-10T12:09:20.047765
-image: assets/20250910T024059690--destel--rill--20250910T024205819--cropped.png
 ---
 
 # [destel/rill](https://github.com/destel/rill)

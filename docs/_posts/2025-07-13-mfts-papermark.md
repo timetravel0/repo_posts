@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-13T17:44:49.841359
-image: assets/mfts_papermark_cropped.png
 ---
 
 # [mfts/papermark](https://github.com/mfts/papermark)

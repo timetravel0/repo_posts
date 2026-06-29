@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-04T23:22:15.676311
-image: assets/20250903T235312949--chroma-core--chroma--20250903T235911229--cropped.png
 ---
 
 # [chroma-core/chroma](https://github.com/chroma-core/chroma)

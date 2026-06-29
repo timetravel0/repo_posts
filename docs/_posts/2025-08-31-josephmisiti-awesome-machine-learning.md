@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-31T20:16:13.754388
-image: assets/20250830T173914117--josephmisiti--awesome-machine-learning--20250830T174420363--cropped.png
 ---
 
 # [josephmisiti/awesome-machine-learning](https://github.com/josephmisiti/awesome-machine-learning)

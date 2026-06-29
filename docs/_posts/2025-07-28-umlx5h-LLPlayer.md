@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-28T00:58:40.697212
-image: assets/umlx5h_LLPlayer_cropped.png
 ---
 
 # [umlx5h/LLPlayer](https://github.com/umlx5h/LLPlayer)

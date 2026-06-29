@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-17T03:33:59.696889
-image: assets/crumbyte_noxdir_cropped.png
 ---
 
 # [crumbyte/noxdir](https://github.com/crumbyte/noxdir)

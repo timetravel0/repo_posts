@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-16T19:19:26.534113
-image: assets/20251016T074641898--AIDC-AI--Pixelle-MCP--20251016T075114066--cropped.png
 ---
 
 # [AIDC-AI/Pixelle-MCP](https://github.com/AIDC-AI/Pixelle-MCP)

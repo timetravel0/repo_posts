@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-25T03:21:36.960678
-image: assets/wassupjay_n8n-free-templates_cropped.png
 ---
 
 # [wassupjay/n8n-free-templates](https://github.com/wassupjay/n8n-free-templates)

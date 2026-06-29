@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-18T21:44:25.767363
-image: assets/20250915T231920277--michaelfeil--infinity--20250918T151005657--cropped.png
 ---
 
 # [michaelfeil/infinity](https://github.com/michaelfeil/infinity)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-09T13:44:46.262161
-image: assets/20251009T061426107--RupertAvery--DiffusionToolkit--20251009T062056798--cropped.png
 ---
 
 # [RupertAvery/DiffusionToolkit](https://github.com/RupertAvery/DiffusionToolkit)

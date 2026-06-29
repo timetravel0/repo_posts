@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-01T06:16:58.149197
-image: assets/GitJournal_GitJournal_cropped.png
 ---
 
 # [GitJournal/GitJournal](https://github.com/GitJournal/GitJournal)

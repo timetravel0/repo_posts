@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-15T15:06:28.916593
-image: assets/20250901T033758150--huggingface--candle--20250915T044007942--cropped.png
 ---
 
 # [huggingface/candle](https://github.com/huggingface/candle)

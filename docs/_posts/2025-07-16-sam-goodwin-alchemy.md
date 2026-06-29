@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-16T21:30:19.413072
-image: assets/sam-goodwin_alchemy_cropped.png
 ---
 
 # [sam-goodwin/alchemy](https://github.com/sam-goodwin/alchemy)

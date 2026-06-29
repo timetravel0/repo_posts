@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-17T12:55:50.506138
-image: assets/harishdeivanayagam_rowfill--20250816T052553775--cropped.png
 ---
 
 # [harishdeivanayagam/rowfill](https://github.com/harishdeivanayagam/rowfill)

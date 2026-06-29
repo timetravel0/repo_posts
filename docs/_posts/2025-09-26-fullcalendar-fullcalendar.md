@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-26T20:34:15.782890
-image: assets/20250926T173132551--fullcalendar--fullcalendar--20250926T174048346--cropped.png
 ---
 
 # [fullcalendar/fullcalendar](https://github.com/fullcalendar/fullcalendar)

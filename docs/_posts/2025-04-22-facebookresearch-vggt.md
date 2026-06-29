@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-04-22T15:01:36.164849
-image: assets/facebookresearch_vggt_cropped.png
 ---
 
 # [facebookresearch/vggt](https://github.com/facebookresearch/vggt)

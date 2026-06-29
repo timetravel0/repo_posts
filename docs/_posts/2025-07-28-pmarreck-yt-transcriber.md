@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-28T00:28:24.798710
-image: assets/pmarreck_yt-transcriber_cropped.png
 ---
 
 # [pmarreck/yt-transcriber](https://github.com/pmarreck/yt-transcriber)

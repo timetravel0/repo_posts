@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-11T01:47:00.206214
-image: assets/20250910T031454470--microsoft--playwright--20250910T031640461--cropped.png
 ---
 
 # [microsoft/playwright](https://github.com/microsoft/playwright)

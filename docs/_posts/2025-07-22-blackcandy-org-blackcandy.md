@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-22T21:52:20.234764
-image: assets/blackcandy-org_blackcandy_cropped.png
 ---
 
 # [blackcandy-org/blackcandy](https://github.com/blackcandy-org/blackcandy)

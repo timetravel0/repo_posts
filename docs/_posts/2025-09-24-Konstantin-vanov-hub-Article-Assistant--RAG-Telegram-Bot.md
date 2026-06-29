@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-24T12:28:26.671358
-image: assets/20250924T055957250--Konstantin-vanov-hub--Article-Assistant--RAG-Telegram-Bot--20250924T060604921--cropped.png
 ---
 
 # [Konstantin-vanov-hub/Article-Assistant--RAG-Telegram-Bot](https://github.com/Konstantin-vanov-hub/Article-Assistant--RAG-Telegram-Bot)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-27T09:11:59.506185
-image: assets/20250927T040210995--dipakkr--A-to-Z-Resources-for-Students--20250927T041402491--cropped.png
 ---
 
 # [dipakkr/A-to-Z-Resources-for-Students](https://github.com/dipakkr/A-to-Z-Resources-for-Students)

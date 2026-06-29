@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-13T01:36:38.963156
-image: assets/zane-ops_zane-ops_cropped.png
 ---
 
 # [zane-ops/zane-ops](https://github.com/zane-ops/zane-ops)

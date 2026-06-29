@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-16T18:49:03.822544
-image: assets/20251016T074639191--amaiya--onprem--20251016T074858513--cropped.png
 ---
 
 # [amaiya/onprem](https://github.com/amaiya/onprem)

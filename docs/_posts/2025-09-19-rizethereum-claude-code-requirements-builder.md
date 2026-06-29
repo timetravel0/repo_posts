@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-19T00:46:19.679349
-image: assets/rizethereum_claude-code-requirements-builder--20250918T221606684--cropped.png
 ---
 
 # [rizethereum/claude-code-requirements-builder](https://github.com/rizethereum/claude-code-requirements-builder)

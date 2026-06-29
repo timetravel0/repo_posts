@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-15T03:29:26.239606
-image: assets/20250914T191716507--cachix--devenv--20250914T191952508--cropped.png
 ---
 
 # [cachix/devenv](https://github.com/cachix/devenv)

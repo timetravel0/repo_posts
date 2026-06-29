@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-22T12:07:57.570964
-image: assets/20250922T025618538--bhavsec--reconspider--20250922T030349155--cropped.png
 ---
 
 # [bhavsec/reconspider](https://github.com/bhavsec/reconspider)

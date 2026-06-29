@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-07T09:25:18.986714
-image: assets/spegel-org_spegel_cropped.png
 ---
 
 # [spegel-org/spegel](https://github.com/spegel-org/spegel)

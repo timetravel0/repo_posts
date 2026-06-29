@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-26T06:36:15.640934
-image: assets/sindresorhus_awesome_cropped.png
 ---
 
 # [sindresorhus/awesome](https://github.com/sindresorhus/awesome)

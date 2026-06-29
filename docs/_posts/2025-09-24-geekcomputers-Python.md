@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-24T05:54:50.310587
-image: assets/20250924T051543282--geekcomputers--Python--20250924T055415006--cropped.png
 ---
 
 # [geekcomputers/Python](https://github.com/geekcomputers/Python)

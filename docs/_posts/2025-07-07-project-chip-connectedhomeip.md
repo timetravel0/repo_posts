@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-07T14:58:17.860419
-image: assets/project-chip_connectedhomeip_cropped.png
 ---
 
 # [project-chip/connectedhomeip](https://github.com/project-chip/connectedhomeip)

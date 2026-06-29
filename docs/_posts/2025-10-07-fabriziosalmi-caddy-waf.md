@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-07T13:36:45.356454
-image: assets/20251007T025154227--fabriziosalmi--caddy-waf--20251007T030125143--cropped.png
 ---
 
 # [fabriziosalmi/caddy-waf](https://github.com/fabriziosalmi/caddy-waf)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-26T08:06:59.563303
-image: assets/TahaSh_swapy_cropped.png
 ---
 
 # [TahaSh/swapy](https://github.com/TahaSh/swapy)

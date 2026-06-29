@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-03T07:18:00.422729
-image: assets/20251001T210812685--EniasCailliau--GirlfriendGPT--20251001T211825822--cropped.png
 ---
 
 # [EniasCailliau/GirlfriendGPT](https://github.com/EniasCailliau/GirlfriendGPT)

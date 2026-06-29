@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-04T12:44:06.920695
-image: assets/20251003T231350509--nostalgic-css--NES.css--20251003T231657403--cropped.png
 ---
 
 # [nostalgic-css/NES.css](https://github.com/nostalgic-css/NES.css)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-18T17:41:50.713632
-image: assets/evilmartians_lefthook--20250918T051934374--cropped.png
 ---
 
 # [evilmartians/lefthook](https://github.com/evilmartians/lefthook)

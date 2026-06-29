@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-04-20T14:00:52.043303
-image: assets/camel-ai_camel_cropped.png
 ---
 
 # [camel-ai/camel](https://github.com/camel-ai/camel)

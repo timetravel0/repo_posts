@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-30T15:28:45.268000
-image: assets/20250822T015828562--Comfy-Org--desktop--20250830T041122001--cropped.png
 ---
 
 # [Comfy-Org/desktop](https://github.com/Comfy-Org/desktop)

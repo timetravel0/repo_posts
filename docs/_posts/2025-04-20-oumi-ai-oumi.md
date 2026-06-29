@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-04-20T20:34:58.278853
-image: assets/oumi-ai_oumi_cropped.png
 ---
 
 # [oumi-ai/oumi](https://github.com/oumi-ai/oumi)

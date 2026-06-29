@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-26T00:02:42.864360
-image: assets/20250925T214256938--Tencent-Hunyuan--HunyuanImage-2.1--20250925T214602973--cropped.png
 ---
 
 # [Tencent-Hunyuan/HunyuanImage-2.1](https://github.com/Tencent-Hunyuan/HunyuanImage-2.1)

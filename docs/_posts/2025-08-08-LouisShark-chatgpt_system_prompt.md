@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-08T11:08:28.910492
-image: assets/LouisShark_chatgpt_system_prompt_cropped.png
 ---
 
 # [LouisShark/chatgpt_system_prompt](https://github.com/LouisShark/chatgpt_system_prompt)

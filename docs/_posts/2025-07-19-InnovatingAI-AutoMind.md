@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-19T01:30:48.832905
-image: assets/InnovatingAI_AutoMind_cropped.png
 ---
 
 # [InnovatingAI/AutoMind](https://github.com/InnovatingAI/AutoMind)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-24T14:14:23.423437
-image: assets/phiresky_ripgrep-all_cropped.png
 ---
 
 # [phiresky/ripgrep-all](https://github.com/phiresky/ripgrep-all)

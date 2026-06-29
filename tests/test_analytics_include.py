@@ -16,8 +16,7 @@ def test_index_no_longer_includes_analytics_directly():
     assert '{% include analytics.html %}' not in idx
 
 
-def test_analytics_include_has_script_and_noscript_pixel():
+def test_analytics_include_has_script_without_tracking_pixel():
     inc = INCLUDE.read_text(encoding='utf-8')
     assert 'scripts.simpleanalyticscdn.com/latest.js' in inc
-    assert 'noscript' in inc and 'noscript.gif' in inc
-
+    assert 'noscript.gif' not in inc

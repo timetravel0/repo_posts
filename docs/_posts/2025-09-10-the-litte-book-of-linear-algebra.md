@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-10T04:35:13.979189
-image: assets/20250908T230716355--the-litte-book-of--linear-algebra--20250908T231810241--cropped.png
 ---
 
 # [the-litte-book-of/linear-algebra](https://github.com/the-litte-book-of/linear-algebra)

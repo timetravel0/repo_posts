@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-07T01:56:24.179626
-image: assets/20251007T015331362--WyattBlue--auto-editor--20251007T015505522--cropped.png
 ---
 
 # [WyattBlue/auto-editor](https://github.com/WyattBlue/auto-editor)

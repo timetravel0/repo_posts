@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const BASE = process.env.BASE || 'https://tom-doerr.github.io/repo_posts';
+const BASE = process.env.BASE || 'https://timetravel0.github.io/repo_posts';
 
 test('status page loads with metrics', async ({ page }) => {
   await page.goto(BASE + '/status.html');

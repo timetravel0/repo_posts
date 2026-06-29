@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-05T15:00:09.596025
-image: assets/o2sh_onefetch--20250905T023147955--cropped.png
 ---
 
 # [o2sh/onefetch](https://github.com/o2sh/onefetch)

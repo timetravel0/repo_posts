@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-04-20T21:05:24.070942
-image: assets/google_adk-python_cropped.png
 ---
 
 # [google/adk-python](https://github.com/google/adk-python)

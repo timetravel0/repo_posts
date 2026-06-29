@@ -28,7 +28,7 @@
       <a class="micro-title" href="{{ '/' | relative_url }}">[ {{ site.title | default: site.github.repository_name }} ]</a>
       <span class="status-indicator"><span class="status-dot"></span>SYSTEM ACTIVE</span>
       <div class="search">
-        <input id="site-search" type="search" placeholder="Search repos…" autocomplete="off" aria-label="Search repositories" aria-controls="search-results" />
+        <input id="site-search" type="search" placeholder="Search links…" autocomplete="off" aria-label="Search links" aria-controls="search-results" />
         <button id="search-clear" type="button" aria-label="Clear search" hidden>&times;</button>
         <label class="sem" title="Semantic search runs in-browser and requires WebGPU. First use loads a small model."><input type="checkbox" id="sem-toggle"> Sem</label>
         <a class="sem-help" href="{{ '/status.html#semantic' | relative_url }}" aria-label="Semantic search help" title="Learn about semantic search">?</a>
@@ -55,23 +55,20 @@
       <header>
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
 
-        {% if site.logo %}
-          <img src="{{site.logo | relative_url}}" alt="Logo" />
-        {% endif %}
-
         <p class="tagline">// SURVEILLANCE FEED</p>
         <p>{{ site.description | default: site.github.project_tagline }}</p>
 
         
 
         {% if page.collection == 'posts' %}
-        {% assign _html = page.content | markdownify %}
-        {% assign _href_parts = _html | split: 'href="' %}
-        {% assign _first_link = _href_parts[1] | split: '"' | first %}
-        {% if _first_link and _first_link contains 'github.com' %}
-        <p class="view"><a href="{{ _first_link }}">View the Project on GitHub</a></p>
-        {% elsif site.github.is_project_page %}
-        <p class="view"><a href="{{ site.github.repository_url }}" target="_blank" rel="noopener">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
+        {% assign _source_url = page.external_url %}
+        {% unless _source_url %}
+          {% assign _html = page.content | markdownify %}
+          {% assign _href_parts = _html | split: 'href="' %}
+          {% assign _source_url = _href_parts[1] | split: '"' | first %}
+        {% endunless %}
+        {% if _source_url %}
+        <p class="view"><a href="{{ _source_url }}" target="_blank" rel="noopener">Visit source</a></p>
         {% endif %}
         {% elsif site.github.is_project_page %}
         <p class="view"><a href="{{ site.github.repository_url }}" target="_blank" rel="noopener">View the Project on GitHub <small>{{ site.github.repository_nwo }}</small></a></p>
@@ -95,20 +92,17 @@
 
       {{ content }}
 
-      {% if page.collection == "posts" and page.image %}
-      {% assign dims = site.data.image_dims[page.image] %}
+      {% if page.collection == "posts" %}
       {% assign y = page.date | date: '%Y' %}{% assign m = page.date | date: '%m' %}{% assign d = page.date | date: '%d' %}
-      <p class="post-image"><img class="loading-blur" src="{{ page.image | relative_url }}" alt="{{ page.title | default: page.slug }} screenshot" decoding="async" fetchpriority="high" onload="this.classList.remove('loading-blur')"{% if dims %} width="{{ dims.width }}" height="{{ dims.height }}"{% endif %}></p>
-      <div id="lightbox"><img alt="Enlarged view"></div>
       <p class="post-index-link"><a href="{{ '/' | relative_url }}#{{ y }}-{{ m }}-{{ d }}-{{ page.slug }}">View on index</a> · <a href="{{ '/map.html' | relative_url }}?hl={{ page.url | relative_url | url_encode }}">View in 3D Map</a></p>
       {% endif %}
 
-      {% comment %} Related repos (owner/repo heuristic via precomputed data) {% endcomment %}
+      {% comment %} Related links via precomputed semantic data {% endcomment %}
       {% if page.collection == "posts" %}
       {% assign dated_slug = page.date | date: '%Y-%m-%d' | append: '-' | append: page.slug %}
       {% assign rel = site.data.related[dated_slug] %}
       {% if rel and rel.size > 0 %}
-      <h3>Related repos</h3>
+      <h3>Related links</h3>
       <ul class="related-list">
         {% assign cur_slug = page.url | split: '/' | last | split: '.' | first %}
         {% for item in rel %}
@@ -136,11 +130,16 @@
     <script>window.__SEM_ASSETS_BASE = "{{ '/assets/' | relative_url }}";</script>
     <script type="module" src="{{ '/assets/js/sem.js?v=' | append: site.github.build_revision | relative_url }}"></script>
     <script>
-      // Open outbound GitHub links in a new tab (minimal, no fallbacks)
       (function(){
-        var sel = 'a[href^="https://github.com/"],a[href^="http://github.com/"]';
-        var els = document.querySelectorAll(sel);
-        for (var i=0;i<els.length;i++){ els[i].setAttribute('target','_blank'); els[i].setAttribute('rel','noopener'); }
+        var els = document.querySelectorAll('a[href^="https://"],a[href^="http://"]');
+        for (var i=0;i<els.length;i++){
+          try {
+            if(new URL(els[i].href, location.href).origin !== location.origin){
+              els[i].setAttribute('target','_blank');
+              els[i].setAttribute('rel','noopener');
+            }
+          } catch(e) {}
+        }
       })();
     </script>
     <script>
@@ -176,11 +175,6 @@
         }
         window.addEventListener('load', jump, { once: true });
       })();
-    </script>
-    <script>
-      (function(){var b=document.getElementById('lightbox');if(!b)return;var i=document.querySelector('.post-image img');if(!i)return;
-        var lb=b.querySelector('img');
-        i.onclick=function(){lb.src=i.src;lb.alt=i.alt||'Enlarged view';b.classList.add('open')};b.onclick=function(){b.classList.remove('open')};})();
     </script>
     <script>
       document.addEventListener('visibilitychange',function(){

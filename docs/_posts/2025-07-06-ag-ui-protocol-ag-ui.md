@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-06T10:12:34.579236
-image: assets/ag-ui-protocol_ag-ui_cropped.png
 ---
 
 # [ag-ui-protocol/ag-ui](https://github.com/ag-ui-protocol/ag-ui)

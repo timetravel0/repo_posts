@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-27T07:18:58.205223
-image: assets/coder_wush_cropped.png
 ---
 
 # [coder/wush](https://github.com/coder/wush)

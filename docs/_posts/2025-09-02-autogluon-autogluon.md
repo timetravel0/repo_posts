@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-02T02:34:32.070915
-image: assets/20250831T020055018--autogluon--autogluon--20250831T020426662--cropped.png
 ---
 
 # [autogluon/autogluon](https://github.com/autogluon/autogluon)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-26T15:10:41.244109
-image: assets/bmadcode_BMAD-METHOD_cropped.png
 ---
 
 # [bmadcode/BMAD-METHOD](https://github.com/bmadcode/BMAD-METHOD)

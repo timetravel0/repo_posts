@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-04-20T04:55:40.434273
-image: assets/microsoft_playwright-mcp_cropped.png
 ---
 
 # [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp)

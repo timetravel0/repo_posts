@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-06-27T09:44:00.712728
-image: assets/you-apps_WallYou_cropped.png
 ---
 
 # [you-apps/WallYou](https://github.com/you-apps/WallYou)

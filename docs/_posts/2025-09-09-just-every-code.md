@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-09T20:30:36.408461
-image: assets/20250908T190139728--just-every--code--20250908T194550919--cropped.png
 ---
 
 # [just-every/code](https://github.com/just-every/code)

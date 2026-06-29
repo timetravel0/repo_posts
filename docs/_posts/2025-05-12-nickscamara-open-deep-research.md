@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-05-12T09:20:58.868286
-image: assets/nickscamara_open-deep-research_cropped.png
 ---
 
 # [nickscamara/open-deep-research](https://github.com/nickscamara/open-deep-research)

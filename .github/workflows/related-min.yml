@@ -7,7 +7,6 @@ on:
       - 'docs/_posts/**'
       - 'tools/generate_related.py'
       - 'tools/generate_search_index.py'
-      - 'tools/generate_image_dims.py'
       - 'tools/export_embeddings_bin.py'
       - '.github/workflows/related-min.yml'
   workflow_dispatch: {}
@@ -36,7 +35,6 @@ jobs:
         run: |
           python tools/generate_related.py
           python tools/generate_search_index.py || true
-          python tools/generate_image_dims.py || true
           python tools/export_embeddings_bin.py || true
       - name: Write status.json
         run: |
@@ -53,11 +51,10 @@ jobs:
       - name: Commit artifacts
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: 'ci: update related/search/image-dims/embeddings (min)'
+          commit_message: 'ci: update related/search/embeddings (min)'
           file_pattern: |
             docs/_data/related.json
             docs/_data/embeddings.npz
-            docs/_data/image_dims.json
             docs/_data/status_related_job.json
             docs/assets/search-index.json
             docs/assets/embeddings.*

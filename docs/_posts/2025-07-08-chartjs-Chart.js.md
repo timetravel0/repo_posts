@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-08T08:12:28.209453
-image: assets/chartjs_Chart.js_cropped.png
 ---
 
 # [chartjs/Chart.js](https://github.com/chartjs/Chart.js)

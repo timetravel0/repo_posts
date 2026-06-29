@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-09T02:52:20.159562
-image: assets/steel-dev_steel-browser_cropped.png
 ---
 
 # [steel-dev/steel-browser](https://github.com/steel-dev/steel-browser)

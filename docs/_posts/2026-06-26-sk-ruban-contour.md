@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2026-06-26T01:41:38.813414
-image: assets/2026-06-26-sk-ruban-contour.png
 ---
 
 # [sk-ruban/contour](https://github.com/sk-ruban/contour)

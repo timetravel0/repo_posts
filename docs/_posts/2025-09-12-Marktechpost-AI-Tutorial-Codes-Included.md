@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-12T00:30:32.755731
-image: assets/20250911T022727642--Marktechpost--AI-Tutorial-Codes-Included--20250911T023323963--cropped.png
 ---
 
 # [Marktechpost/AI-Tutorial-Codes-Included](https://github.com/Marktechpost/AI-Tutorial-Codes-Included)

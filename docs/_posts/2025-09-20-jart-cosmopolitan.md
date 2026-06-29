@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-20T05:27:39.022916
-image: assets/20250918T040655028--jart--cosmopolitan--20250920T033026858--cropped.png
 ---
 
 # [jart/cosmopolitan](https://github.com/jart/cosmopolitan)

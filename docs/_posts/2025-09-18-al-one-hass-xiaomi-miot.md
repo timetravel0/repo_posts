@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-18T13:09:30.848990
-image: assets/20250915T231253644--al-one--hass-xiaomi-miot--20250918T050921225--cropped.png
 ---
 
 # [al-one/hass-xiaomi-miot](https://github.com/al-one/hass-xiaomi-miot)

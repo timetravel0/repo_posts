@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-06-25T22:48:09.906209
-image: assets/maccman_ai-monorepo-scaffold_cropped.png
 ---
 
 # [maccman/ai-monorepo-scaffold](https://github.com/maccman/ai-monorepo-scaffold)

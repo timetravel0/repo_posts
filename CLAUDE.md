@@ -2,13 +2,14 @@
 
 ## Project Overview
 
-Jekyll static site showcasing GitHub repos with semantic search.
-Live: https://tom-doerr.github.io/repo_posts/
+Jekyll static site archiving arbitrary public web links with semantic search.
+Live: https://timetravel0.github.io/repo_posts/
 
 ## Key Files
 
 - `tools/generate_related.py` - Generates embeddings and related.json
 - `tools/generate_search_index.py` - Builds client-side search index
+- `tools/add_links.py` - Imports arbitrary public HTTP(S) links
 - `tools/export_embeddings_bin.py` - Exports embeddings for browser semantic search
 - `tools/export_3d_coords.py` - UMAP reduction to 3D for visualization
 - `docs/assets/js/sem.js` - Browser-based semantic search (WebGPU/ONNX)
@@ -26,7 +27,7 @@ Live: https://tom-doerr.github.io/repo_posts/
 - `generate-related-min.yml` - push to docs/_posts or tools → embeddings, search index
 - `pages-min.yml` - push to docs → build and deploy Jekyll
 - `rss-smoke.yml` - after pages deploy → validate site health
-- `image-compress.yml` - PR to docs/assets → optimize images
+- `add-links.yml` - owner-triggered form that creates posts from URLs
 
 ## SEO
 
@@ -49,7 +50,7 @@ Embedding model: `sentence-transformers/all-MiniLM-L6-v2` (384 dims)
 
 ### Local Jekyll Server
 
-Use Jekyll for proper CSS/images: `cd docs && jekyll serve --host 0.0.0.0 --port 4000`
+Use Jekyll for the complete site: `cd docs && jekyll serve --host 0.0.0.0 --port 4000`
 Access at `http://localhost:4000/repo_posts/` (first build ~17min for 13K posts)
 
 **Gotcha:** Do NOT create `docs/Gemfile` or commit `docs/vendor/` - breaks GitHub Pages
@@ -73,8 +74,8 @@ Interactive visualization at `/map.html` - posts float in 3D space arranged by s
 - **Highlight:** `?hl=<url>` param highlights point green and centers camera
 - **URLs:** All tools generate URLs with `/repo_posts/` prefix for GitHub Pages
 
-## Repo Page Features
+## Link Page Features
 
-- **Image lightbox:** Click post image to view fullscreen (above scan lines overlay)
-- **3D Map link:** "View in 3D Map" opens map with that repo highlighted
-
+- **External source:** `external_url` supports any public HTTP(S) destination.
+- **Legacy compatibility:** old posts fall back to the first Markdown link.
+- **3D Map link:** "View in 3D Map" opens the map with that link highlighted.

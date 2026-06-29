@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-24T05:09:41.993429
-image: assets/assetnote_newtowner_cropped.png
 ---
 
 # [assetnote/newtowner](https://github.com/assetnote/newtowner)

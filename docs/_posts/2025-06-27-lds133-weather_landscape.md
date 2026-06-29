@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-06-27T07:42:31.918847
-image: assets/lds133_weather_landscape_cropped.png
 ---
 
 # [lds133/weather_landscape](https://github.com/lds133/weather_landscape)

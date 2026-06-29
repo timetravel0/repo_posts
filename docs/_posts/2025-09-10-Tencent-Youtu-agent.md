@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-10T17:12:20.024393
-image: assets/20250910T025555345--Tencent--Youtu-agent--20250910T025705685--cropped.png
 ---
 
 # [Tencent/Youtu-agent](https://github.com/Tencent/Youtu-agent)

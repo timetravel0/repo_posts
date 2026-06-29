@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-03T06:51:29.401612
-image: assets/Arindam200_logo-ai_cropped.png
 ---
 
 # [Arindam200/logo-ai](https://github.com/Arindam200/logo-ai)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-16T10:23:17.911488
-image: assets/Kiln-AI_Kiln_cropped.png
 ---
 
 # [Kiln-AI/Kiln](https://github.com/Kiln-AI/Kiln)

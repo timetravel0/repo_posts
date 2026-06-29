@@ -33,14 +33,7 @@ header p { color:var(--eva-text-dim); }
 .post:hover { transform:translateY(-4px); box-shadow:0 0 30px #ff6611,0 0 60px rgba(255,102,17,0.5),0 0 100px rgba(0,255,65,0.2); border-color:var(--eva-green); background-position:120% 0,0 0; }
 .post:focus-within{ background-position:120% 0,0 0; }
 .post:hover .rec-indicator { color:var(--eva-green); }
-.post img { display:block; max-width:100%; height:auto; border:1px solid var(--eva-purple-light); transition:opacity .2s; }
 .stretched-link{ position:absolute; inset:0; z-index:1; text-indent:-9999px; }
-.post-image-link { display:block }
-.post-image-link img { transition: transform .2s ease }
-.post-image-link:hover img { transform: scale(1.01) }
-.post img[loading="lazy"] {}
-.post-image img { display:block; max-width:100%; height:auto; transition:opacity .2s,box-shadow .2s; }
-.post:hover .post-image img { box-shadow:0 0 12px var(--eva-orange-glow); }
 .post .post-meta { font-family:'Roboto Mono',monospace; font-size:11px; color:var(--eva-green); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.05em; }
 .post .post-meta::before { content:"//"; color:var(--eva-orange); margin-right:6px; }
 .post h1 { font-family:'Orbitron',sans-serif; font-size:22px; line-height:1.3; margin:10px 0 6px; font-weight:700; letter-spacing:0.05em; color:var(--eva-text); }
@@ -87,9 +80,6 @@ ul { padding-left: 18px; }
 /* Long related titles: collapse with ellipsis */
 .related-list a { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width:0 }
 .related-snippet{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; color:var(--eva-text-dim); font-size:11px; margin:0 0 4px 0; padding:0; }
-/* Related thumbnails */
-.related-image-link img{ display:block; max-width:100%; height:auto; border:1px solid var(--eva-purple-light); }
-
 /* Two-column card grid (now possible with sidebar hidden) */
 @media (min-width: 900px) {
   .home-page #main { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap); }
@@ -136,8 +126,6 @@ summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 #copy-toast{ position:fixed; left:8px; top:52px; background:var(--eva-purple); color:var(--eva-green); border:1px solid var(--eva-orange); padding:6px 10px; font-family:'Roboto Mono',monospace; font-size:11px; box-shadow:0 0 20px var(--eva-orange-glow),0 0 40px rgba(255,102,17,0.3); opacity:0; transition:opacity .15s; pointer-events:none; z-index:60; }
 #copy-toast.show{ opacity:1; }
 
-/* loading-fade: opacity 0 until onload removes the class */
-.loading-blur{ opacity: 0; }
 /* Semantic search running indicator */
 #sem-status:not([hidden])::before{
   content:""; display:inline-block; width:10px; height:10px; margin-right:6px;
@@ -212,12 +200,6 @@ body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index
 /* Tagline */
 .tagline{ font-family:'Orbitron',sans-serif; font-size:10px; color:var(--eva-green); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:4px; }
 
-/* Image lightbox */
-.post-image img{ cursor:zoom-in }
-#lightbox{ display:none; position:fixed; inset:0; z-index:10000; background:rgba(0,0,0,0.95); justify-content:center; align-items:center; cursor:zoom-out }
-#lightbox.open{ display:flex }
-#lightbox img{ max-width:95vw; max-height:95vh; object-fit:contain }
-
 /* Semantic diagnostics expander */
 .sem-details{ margin-top:6px; border:1px solid var(--eva-purple-light); background:rgba(45,27,78,0.6); padding:6px 8px; }
 .sem-details summary{ cursor:pointer; list-style:none; font-family:'Orbitron',sans-serif; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--eva-text-dim); }
@@ -282,7 +264,6 @@ article.post.is-pressed{ --lift: -1px; --scale: 0.988; filter: saturate(1.05) br
 article.post .rec-indicator,
 article.post .post-meta,
 article.post .post-footer{ transform: translateZ(18px); }
-article.post .post-image-link{ transform: translateZ(14px); }
 
 @keyframes postWarpOut{
   0%{
@@ -317,7 +298,6 @@ article.post.warp-out{ pointer-events:none; animation: postWarpOut .28s cubic-be
   article.post.is-pressed{ transform:none !important; filter:none !important; }
   article.post .rec-indicator,
   article.post .post-meta,
-  article.post .post-footer,
-  article.post .post-image-link{ transform:none !important; }
+  article.post .post-footer{ transform:none !important; }
   article.post.warp-out{ animation:none !important; opacity:1 !important; }
 }

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-20T10:19:07.375981
-image: assets/CatchTheTornado_text-extract-api_cropped.png
 ---
 
 # [CatchTheTornado/text-extract-api](https://github.com/CatchTheTornado/text-extract-api)

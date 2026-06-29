@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-13T19:15:32.141839
-image: assets/jackocnr_intl-tel-input_cropped.png
 ---
 
 # [jackocnr/intl-tel-input](https://github.com/jackocnr/intl-tel-input)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-30T13:33:23.223757
-image: assets/20250930T033326069--captbaritone--webamp--20250930T034251591--cropped.png
 ---
 
 # [captbaritone/webamp](https://github.com/captbaritone/webamp)

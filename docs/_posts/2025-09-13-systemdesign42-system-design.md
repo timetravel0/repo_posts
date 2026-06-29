@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-13T13:50:58.173185
-image: assets/20250912T002132362--systemdesign42--system-design--20250912T002404498--cropped.png
 ---
 
 # [systemdesign42/system-design](https://github.com/systemdesign42/system-design)

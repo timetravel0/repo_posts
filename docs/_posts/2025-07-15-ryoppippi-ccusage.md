@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-15T10:08:21.277083
-image: assets/ryoppippi_ccusage_cropped.png
 ---
 
 # [ryoppippi/ccusage](https://github.com/ryoppippi/ccusage)

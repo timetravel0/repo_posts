@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-11T08:50:57.794497
-image: assets/20250911T013855128--openwrt--openwrt--20250911T014139746--cropped.png
 ---
 
 # [openwrt/openwrt](https://github.com/openwrt/openwrt)

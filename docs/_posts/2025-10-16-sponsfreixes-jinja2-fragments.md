@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-16T10:44:02.448504
-image: assets/sponsfreixes_jinja2-fragments--20251016T071115661--cropped.png
 ---
 
 # [sponsfreixes/jinja2-fragments](https://github.com/sponsfreixes/jinja2-fragments)

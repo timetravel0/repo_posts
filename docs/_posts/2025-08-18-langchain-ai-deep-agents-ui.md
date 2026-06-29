@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-18T21:11:39.989530
-image: assets/20250818T092630820_langchain-ai_deep-agents-ui--20250818T092742199--cropped.png
 ---
 
 # [langchain-ai/deep-agents-ui](https://github.com/langchain-ai/deep-agents-ui)

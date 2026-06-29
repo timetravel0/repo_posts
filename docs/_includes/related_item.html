@@ -11,11 +11,5 @@
       <a class="related-link" href="{{ _url | relative_url }}"><small class="related-snippet">{{ snippet_txt }}</small></a>
       {%- endif -%}
     {%- endif -%}
-    {%- if rel_post and rel_post.image -%}
-    {%- assign dims = site.data.image_dims[rel_post.image] -%}
-    <a class="related-image-link" href="{{ _url | relative_url }}">
-      <img class="loading-blur" src="{{ rel_post.image | relative_url }}" alt="{{ rel_post.title | default: item_slug }} screenshot" loading="lazy" decoding="async" onload="this.classList.remove('loading-blur')"{% if dims %} width="{{ dims.width }}" height="{{ dims.height }}"{% endif %}>
-    </a>
-    {%- endif -%}
   </li>
 {%- endif -%}

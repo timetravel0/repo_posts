@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-19T19:32:55.657465
-image: assets/20250818T115224523_usewaypoint_email-builder-js--20250818T115624550--cropped.png
 ---
 
 # [usewaypoint/email-builder-js](https://github.com/usewaypoint/email-builder-js)

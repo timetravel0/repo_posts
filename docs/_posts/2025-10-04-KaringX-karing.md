@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-04T19:50:42.420959
-image: assets/20251003T232151860--KaringX--karing--20251003T232433822--cropped.png
 ---
 
 # [KaringX/karing](https://github.com/KaringX/karing)

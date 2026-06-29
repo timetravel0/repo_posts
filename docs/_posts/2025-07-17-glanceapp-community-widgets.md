@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-17T05:35:05.947323
-image: assets/glanceapp_community-widgets_cropped.png
 ---
 
 # [glanceapp/community-widgets](https://github.com/glanceapp/community-widgets)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-27T16:12:24.951347
-image: assets/20250826T030808170--InvoicePlane--InvoicePlane--20250826T031203136--cropped.png
 ---
 
 # [InvoicePlane/InvoicePlane](https://github.com/InvoicePlane/InvoicePlane)

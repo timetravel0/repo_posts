@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-30T06:26:45.392399
-image: assets/20250930T002245092--TharaneshA--answergit--20250930T003000020--cropped.png
 ---
 
 # [TharaneshA/answergit](https://github.com/TharaneshA/answergit)

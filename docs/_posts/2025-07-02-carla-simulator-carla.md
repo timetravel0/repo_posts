@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-02T20:58:12.441964
-image: assets/carla-simulator_carla_cropped.png
 ---
 
 # [carla-simulator/carla](https://github.com/carla-simulator/carla)

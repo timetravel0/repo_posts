@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-20T06:17:00.847835
-image: assets/browser-use_web-ui_cropped.png
 ---
 
 # [browser-use/web-ui](https://github.com/browser-use/web-ui)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-02T17:26:20.746190
-image: assets/getAsterisk_claudia_cropped.png
 ---
 
 # [getAsterisk/claudia](https://github.com/getAsterisk/claudia)

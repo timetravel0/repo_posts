@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-05T07:26:28.903329
-image: assets/BlinkDL_RWKV-LM--20250904T003825331--cropped.png
 ---
 
 # [BlinkDL/RWKV-LM](https://github.com/BlinkDL/RWKV-LM)

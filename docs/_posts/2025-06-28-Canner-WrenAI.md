@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-06-28T09:40:17.642579
-image: assets/Canner_WrenAI_cropped.png
 ---
 
 # [Canner/WrenAI](https://github.com/Canner/WrenAI)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-04T11:20:06.099554
-image: assets/InsForge_InsForge_cropped.png
 ---
 
 # [InsForge/InsForge](https://github.com/InsForge/InsForge)

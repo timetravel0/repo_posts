@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-11T11:52:13.102062
-image: assets/pollinations_pollinations_cropped.png
 ---
 
 # [pollinations/pollinations](https://github.com/pollinations/pollinations)

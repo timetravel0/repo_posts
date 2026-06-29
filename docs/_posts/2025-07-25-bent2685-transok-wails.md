@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-25T09:55:01.084572
-image: assets/bent2685_transok-wails_cropped.png
 ---
 
 # [bent2685/transok-wails](https://github.com/bent2685/transok-wails)

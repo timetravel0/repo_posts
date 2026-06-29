@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-13T10:41:23.176983
-image: assets/store-craft_storecraft_cropped.png
 ---
 
 # [store-craft/storecraft](https://github.com/store-craft/storecraft)

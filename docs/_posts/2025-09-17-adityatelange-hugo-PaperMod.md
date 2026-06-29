@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-17T01:55:27.389571
-image: assets/20250915T235011738--adityatelange--hugo-PaperMod--20250915T235847105--cropped.png
 ---
 
 # [adityatelange/hugo-PaperMod](https://github.com/adityatelange/hugo-PaperMod)

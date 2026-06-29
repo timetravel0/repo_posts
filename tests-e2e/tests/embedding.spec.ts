@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 // E2E for semantic search with injected stub
 test('semantic search shows status and yields results', async ({ page, baseURL }) => {
-  const BASE = (baseURL || 'https://tom-doerr.github.io/repo_posts').replace(/\/$/, '');
+  const BASE = (baseURL || 'https://timetravel0.github.io/repo_posts').replace(/\/$/, '');
 
   // Ensure WebGPU gate passes
   await page.addInitScript(() => {

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-20T21:37:30.096037
-image: assets/20250920T062045836--SSShooter--ebook-to-mindmap--20250920T063749543--cropped.png
 ---
 
 # [SSShooter/ebook-to-mindmap](https://github.com/SSShooter/ebook-to-mindmap)

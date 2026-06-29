@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-04T04:16:29.220936
-image: assets/SiriusScan_Sirius_cropped.png
 ---
 
 # [SiriusScan/Sirius](https://github.com/SiriusScan/Sirius)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-01T11:39:37.749590
-image: assets/Tej-Sharma_horizon-overlay-open-source-cluely_cropped.png
 ---
 
 # [Tej-Sharma/horizon-overlay-open-source-cluely](https://github.com/Tej-Sharma/horizon-overlay-open-source-cluely)

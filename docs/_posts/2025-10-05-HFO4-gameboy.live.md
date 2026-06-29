@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-05T03:29:06.012082
-image: assets/20251005T002107922--HFO4--gameboy.live--20251005T002733959--cropped.png
 ---
 
 # [HFO4/gameboy.live](https://github.com/HFO4/gameboy.live)

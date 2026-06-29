@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-11T22:29:16.013125
-image: assets/20250911T015804830--kruskal-labs--toolfront--20250911T023033890--cropped.png
 ---
 
 # [kruskal-labs/toolfront](https://github.com/kruskal-labs/toolfront)

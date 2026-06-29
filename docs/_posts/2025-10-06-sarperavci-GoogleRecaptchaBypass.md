@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-06T12:00:09.709719
-image: assets/sarperavci_GoogleRecaptchaBypass--20251005T225520701--cropped.png
 ---
 
 # [sarperavci/GoogleRecaptchaBypass](https://github.com/sarperavci/GoogleRecaptchaBypass)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-12T21:02:39.000588
-image: assets/20251012T025202129--SinTan1729--chhoto-url--20251012T025856959--cropped.png
 ---
 
 # [SinTan1729/chhoto-url](https://github.com/SinTan1729/chhoto-url)

@@ -2,7 +2,7 @@ name: RSS Smoke Check
 
 on:
   workflow_run:
-    workflows: ["Deploy Jekyll site"]
+    workflows: ["Pages (min)"]
     types: ["completed"]
 
 jobs:
@@ -14,61 +14,38 @@ jobs:
         run: echo "START=$EPOCHSECONDS" >> $GITHUB_ENV
       - name: Check homepage
         run: |
-          curl -fsS https://tom-doerr.github.io/repo_posts/
+          curl -fsS https://timetravel0.github.io/repo_posts/
       - name: Check feed
         run: |
-          FEED=https://tom-doerr.github.io/repo_posts/feed.xml
+          FEED=https://timetravel0.github.io/repo_posts/feed.xml
           # HEAD without piping to avoid broken-pipe exit 23
           curl -fsSI "$FEED" >/dev/null
-      - name: Check first feed image is reachable
+      - name: Check a sample post has source and index links
         run: |
-          FEED=https://tom-doerr.github.io/repo_posts/feed.xml
-          url=$(curl -fsS "$FEED" | awk -F 'src="' '/<img/{print $2; exit}' | cut -d '"' -f1)
-          [ -n "$url" ] || (echo "No <img src> found in feed" && exit 1)
-          # Retry a couple of times in case deploy propagation is lagging
-          ok=0; for i in 1 2 3; do
-            if curl -fsSI "$url" >/dev/null; then ok=1; break; fi
-            sleep 3
-          done
-          [ "$ok" -eq 1 ] || (echo "Feed image not reachable" && exit 1)
-      - name: Check a sample post has image and index link
-        run: |
-          BASE=https://tom-doerr.github.io/repo_posts
+          BASE=https://timetravel0.github.io/repo_posts
           curl -fsS "$BASE/2025/10/26/Tyrrrz-YoutubeExplode.html" | tee post.html >/dev/null
-          grep -q 'class="post-image"' post.html
+          grep -q 'Visit source' post.html
           grep -q 'View on index' post.html
-      - name: Check sample post image has width/height
+      - name: Check a sample post shows related links
         run: |
-          # Ensure we ship layout with width/height to avoid CLS
-          grep -q '<img[^>]*width="[0-9]\+"' post.html
-          grep -q '<img[^>]*height="[0-9]\+"' post.html
-      - name: Check homepage images have width/height
-        run: |
-          BASE=https://tom-doerr.github.io/repo_posts
-          curl -fsS "$BASE/" | tee home.html >/dev/null
-          count=$(grep -o '<img[^>]*>' home.html | head -n 10 | grep -E 'width="[0-9]+"' | grep -E -c 'height="[0-9]+"' || true)
-          echo "Homepage first-10 images with width+height: $count"
-          [ "$count" -ge 5 ] || (echo "Too few homepage images with width+height" && exit 1)
-      - name: Check a sample post shows Related repos
-        run: |
-          BASE=https://tom-doerr.github.io/repo_posts
+          BASE=https://timetravel0.github.io/repo_posts
           curl -fsS "$BASE/2025/10/26/Tyrrrz-YoutubeExplode.html" | tee post2.html >/dev/null
-          grep -q 'Related repos' post2.html
+          grep -q 'Related links' post2.html
           grep -q '<ul class="related-list">' post2.html
       - name: Ensure first related is not self
         run: |
-          BASE=https://tom-doerr.github.io/repo_posts
+          BASE=https://timetravel0.github.io/repo_posts
           cur=$(basename "/2025/10/26/Tyrrrz-YoutubeExplode.html" .html)
           rslug=$(awk '/<ul class="related-list">/,/<\/ul>/' post2.html | sed -n 's#.*href=\"[^\"]*/\([A-Za-z0-9._-]*\)\.html\".*#\1#p' | head -n1)
           [ -n "$rslug" ] && [ "$rslug" != "$cur" ]
       - name: Check first related link returns 200
         run: |
-          BASE=https://tom-doerr.github.io/repo_posts
+          BASE=https://timetravel0.github.io/repo_posts
           href=$(awk '/<ul class="related-list">/,/<\/ul>/' post2.html | grep -o 'href="[^"]*"' | head -n1 | sed -E 's/href="([^"]*)"/\1/')
           if [ -z "$href" ]; then echo "::notice::No related href found (0 related items); skipping link check"; exit 0; fi
           case "$href" in
             http*) url="$href";;
-            /repo_posts/*) url="https://tom-doerr.github.io$href";;
+            /repo_posts/*) url="https://timetravel0.github.io$href";;
             /*) url="$BASE$href";;
             *) url="$BASE/$href";;
           esac
@@ -80,14 +57,14 @@ jobs:
           [ "$ok" -eq 1 ] || (echo "Related URL failed after retries: $url" && exit 1)
       - name: Ensure first related is not self
         run: |
-          BASE=https://tom-doerr.github.io/repo_posts
+          BASE=https://timetravel0.github.io/repo_posts
           cur=$(basename "/2025/10/26/Tyrrrz-YoutubeExplode.html" .html)
           rslug=$(awk '/<ul class="related-list">/,/<\/ul>/' post2.html | sed -n 's#.*href=\"[^\"]*/\([A-Za-z0-9._-]*\)\.html\".*#\1#p' | head -n1)
           if [ -z "$rslug" ]; then echo "::notice::No related items; skipping self-link assertion"; exit 0; fi
           [ "$rslug" != "$cur" ]
       - name: Check Status page metrics
         run: |
-          BASE=https://tom-doerr.github.io/repo_posts
+          BASE=https://timetravel0.github.io/repo_posts
           curl -fsS "$BASE/status.html" | tee status.html >/dev/null
           posts=$(grep -o 'Posts: [0-9]\+' status.html | sed -E 's/[^0-9]//g' | head -n1)
           [ -n "$posts" ] && [ "$posts" -gt 0 ] || (echo "Posts is zero or missing" && exit 1)
@@ -101,12 +78,12 @@ jobs:
           [ "$(grep -o 'scripts.simpleanalyticscdn.com' post2.html | wc -l)" -eq 1 ]
       - name: Check search index and site CSS exist
         run: |
-          BASE=https://tom-doerr.github.io/repo_posts
+          BASE=https://timetravel0.github.io/repo_posts
           curl -fsS "$BASE/assets/search-index.json" | head -c 2 >/dev/null
           curl -fsS "$BASE/assets/css/site.css" | head -n 1
       - name: Check semantic search script is deployed
         run: |
-          BASE=https://tom-doerr.github.io/repo_posts
+          BASE=https://timetravel0.github.io/repo_posts
           ok=0
           for i in 1 2 3; do
             js=$(curl -fsS "$BASE/assets/js/sem.js" || true)
@@ -116,4 +93,5 @@ jobs:
           [ "$ok" -eq 1 ] || (echo "sem.js missing or wrong version on live site" && exit 1)
       - name: Job runtime
         if: always()
-        run: echo "Job runtime: $(( (EPOCHSECONDS-START+59)/60 )) min" >> $GITHUB_STEP_SUMMARY
+        run: |
+          echo "Job runtime: $(( (EPOCHSECONDS-START+59)/60 )) min" >> $GITHUB_STEP_SUMMARY

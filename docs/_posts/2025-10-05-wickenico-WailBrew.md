@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-05T10:05:35.864849
-image: assets/20251005T003322001--wickenico--WailBrew--20251005T003925666--cropped.png
 ---
 
 # [wickenico/WailBrew](https://github.com/wickenico/WailBrew)

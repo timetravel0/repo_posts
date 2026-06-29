@@ -38,12 +38,22 @@ def _url(p: Path) -> str:
 
 def _extract(p: Path) -> tuple[str,str]:
     s = p.read_text(encoding="utf-8", errors="ignore")
+    def frontmatter(key: str) -> str:
+        match = re.search(rf"(?m)^{re.escape(key)}:\s*(.+?)\s*$", s)
+        if not match:
+            return ""
+        raw = match.group(1).strip()
+        try:
+            value = json.loads(raw)
+        except json.JSONDecodeError:
+            value = raw.strip('"').strip("'")
+        return value if isinstance(value, str) else ""
     # crude: title line starting with '# '
     m = re.search(r"^#\s+(.+)$", s, re.M)
-    title = m.group(1).strip() if m else p.stem
+    title = frontmatter("title") or (m.group(1).strip() if m else p.stem)
     # first non-empty paragraph after title
-    body = re.split(r"\n\s*\n", s, maxsplit=1)
-    desc = body[1].strip() if len(body) > 1 else ""
+    paragraph = re.search(r"^#\s+.+$(?:\r?\n)+([^#\n][^\n]+)", s, re.M)
+    desc = frontmatter("description") or (paragraph.group(1).strip() if paragraph else "")
     return title, desc
 
 def _owner_from_slug(slug: str) -> str:

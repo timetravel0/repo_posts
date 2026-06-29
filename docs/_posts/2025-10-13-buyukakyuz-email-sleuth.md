@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-13T05:37:25.993623
-image: assets/20251013T000119591--buyukakyuz--email-sleuth--20251013T000510888--cropped.png
 ---
 
 # [buyukakyuz/email-sleuth](https://github.com/buyukakyuz/email-sleuth)

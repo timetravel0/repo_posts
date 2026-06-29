@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-22T04:33:53.347689
-image: assets/20250922T015446744--lite-xl--lite-xl--20250922T023408024--cropped.png
 ---
 
 # [lite-xl/lite-xl](https://github.com/lite-xl/lite-xl)

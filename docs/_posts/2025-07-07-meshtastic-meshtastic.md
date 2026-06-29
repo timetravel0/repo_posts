@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-07T09:55:34.918268
-image: assets/meshtastic_meshtastic_cropped.png
 ---
 
 # [meshtastic/meshtastic](https://github.com/meshtastic/meshtastic)

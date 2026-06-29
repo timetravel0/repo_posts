@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-31T05:03:24.616009
-image: assets/dyad-sh_dyad_cropped.png
 ---
 
 # [dyad-sh/dyad](https://github.com/dyad-sh/dyad)

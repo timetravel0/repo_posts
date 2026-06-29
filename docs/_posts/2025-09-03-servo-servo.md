@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-03T11:13:40.532967
-image: assets/20250903T013958815--servo--servo--20250903T014938500--cropped.png
 ---
 
 # [servo/servo](https://github.com/servo/servo)

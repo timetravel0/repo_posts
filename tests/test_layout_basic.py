@@ -19,10 +19,9 @@ def test_no_fixed_or_absolute_position_on_content_wrappers():
     assert css.count('position:absolute') <= 5
 
 
-def test_layout_contains_single_section_and_post_image_block():
+def test_layout_contains_single_section_and_post_navigation():
     html = LAYOUT.read_text(encoding='utf-8')
     # Section may have id="main" for skip link accessibility
     assert html.count('<section') == 1
-    # Per-post image + index link are present under the content
-    assert 'class="post-image"' in html
+    assert 'page.image' not in html
     assert 'View on index' in html

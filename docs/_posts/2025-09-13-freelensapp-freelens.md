@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-13T21:55:38.924597
-image: assets/20250912T004822390--freelensapp--freelens--20250912T005330095--cropped.png
 ---
 
 # [freelensapp/freelens](https://github.com/freelensapp/freelens)

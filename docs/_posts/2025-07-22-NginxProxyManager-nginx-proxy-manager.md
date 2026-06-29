@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-22T06:44:09.546108
-image: assets/NginxProxyManager_nginx-proxy-manager_cropped.png
 ---
 
 # [NginxProxyManager/nginx-proxy-manager](https://github.com/NginxProxyManager/nginx-proxy-manager)

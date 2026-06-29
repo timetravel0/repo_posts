@@ -2,7 +2,7 @@
 layout: null
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+<feed xmlns="http://www.w3.org/2005/Atom">
   <title>{{ site.title | xml_escape }}</title>
   <link href="{{ site.url | append: site.baseurl }}"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
@@ -13,8 +13,11 @@ layout: null
 
   {% for post in site.posts %}
   {% assign html = post.content | markdownify %}
+  {% assign first_link = post.external_url %}
+  {% unless first_link %}
   {% assign href_parts = html | split: 'href="' %}
   {% assign first_link = href_parts[1] | split: '"' | first %}
+  {% endunless %}
   <entry>
     <title>{{ post.title | default: post.slug | xml_escape }}</title>
     <link href="{{ post.url | absolute_url }}"/>
@@ -23,19 +26,7 @@ layout: null
     {% if first_link %}
     <link rel="related" type="text/html" href="{{ first_link | xml_escape }}" />
     {% endif %}
-    {% if post.image %}
-    {% capture absimg %}{% include img_abs_url.html path=post.image %}{% endcapture %}
-    {% assign ext = post.image | split:'.' | last | downcase %}
-    {% assign mime = 'image/*' %}
-    {% if ext == 'png' %}{% assign mime = 'image/png' %}{% elsif ext == 'jpg' or ext == 'jpeg' %}{% assign mime = 'image/jpeg' %}{% elsif ext == 'webp' %}{% assign mime = 'image/webp' %}{% elsif ext == 'gif' %}{% assign mime = 'image/gif' %}{% endif %}
-    <media:thumbnail url="{{ absimg | strip }}" />
-    <media:content url="{{ absimg | strip }}" medium="image" type="{{ mime }}" />
-    <link rel="enclosure" type="{{ mime }}" href="{{ absimg | strip }}" />
-    {% endif %}
     <content type="html"><![CDATA[
-      {% if post.image %}
-      <p><img src="{% include img_abs_url.html path=post.image %}" alt="{{ post.title | default: post.slug | xml_escape }} screenshot"/></p>
-      {% endif %}
       {{ html }}
     ]]></content>
   </entry>

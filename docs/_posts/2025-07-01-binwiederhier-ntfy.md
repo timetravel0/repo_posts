@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-01T02:34:56.525045
-image: assets/binwiederhier_ntfy_cropped.png
 ---
 
 # [binwiederhier/ntfy](https://github.com/binwiederhier/ntfy)

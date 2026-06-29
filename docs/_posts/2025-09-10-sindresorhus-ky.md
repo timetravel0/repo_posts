@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-10T15:41:26.497028
-image: assets/20250910T025051133--sindresorhus--ky--20250910T025241407--cropped.png
 ---
 
 # [sindresorhus/ky](https://github.com/sindresorhus/ky)

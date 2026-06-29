@@ -157,7 +157,7 @@
   const render = (showEmpty) => {
     if(countEl){ countEl.hidden = !current.length && !showEmpty; countEl.textContent = current.length ? `${current.length} result${current.length===1?'':'s'}` : ''; }
     if(!current.length){
-      if(showEmpty){ panel.hidden=false; panel.innerHTML='<div class="search-empty">No repos found</div>'; }
+      if(showEmpty){ panel.hidden=false; panel.innerHTML='<div class="search-empty">No links found</div>'; }
       else{ panel.hidden=true; panel.innerHTML=''; }
       active=-1; return;
     }

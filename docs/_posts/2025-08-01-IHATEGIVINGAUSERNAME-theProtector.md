@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-01T15:21:51.242229
-image: assets/IHATEGIVINGAUSERNAME_theProtector_cropped.png
 ---
 
 # [IHATEGIVINGAUSERNAME/theProtector](https://github.com/IHATEGIVINGAUSERNAME/theProtector)

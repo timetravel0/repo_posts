@@ -49,7 +49,7 @@
     card.addEventListener('pointerdown', () => card.classList.add('is-pressed'));
     card.addEventListener('pointerup', () => card.classList.remove('is-pressed'));
 
-    // Warp on internal navigation clicks (stretched-link / image link).
+    // Warp on internal navigation clicks.
     card.addEventListener('click', (e) => {
       if (reduce) return;
       if (e.defaultPrevented) return;

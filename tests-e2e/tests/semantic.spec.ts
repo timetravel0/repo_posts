@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('semantic toggle reranks results (stubbed)', async ({ page, baseURL, request }) => {
-  const BASE = (baseURL || 'https://tom-doerr.github.io/repo_posts').replace(/\/$/, '');
+  const BASE = (baseURL || 'https://timetravel0.github.io/repo_posts').replace(/\/$/, '');
 
   // Fetch the live search index and pick a guaranteed URL
   const resp = await request.get(BASE + '/assets/search-index.json');

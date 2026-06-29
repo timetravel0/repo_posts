@@ -30,10 +30,11 @@ jobs:
           npx playwright install --with-deps
       - name: Run stubbed semantic e2e
         env:
-          BASE: https://tom-doerr.github.io/repo_posts
+          BASE: https://timetravel0.github.io/repo_posts
         working-directory: tests-e2e
         run: |
           npx playwright test --reporter=line
       - name: Job runtime
         if: always()
-        run: echo "Job runtime: $(( (EPOCHSECONDS-START+59)/60 )) min" >> $GITHUB_STEP_SUMMARY
+        run: |
+          echo "Job runtime: $(( (EPOCHSECONDS-START+59)/60 )) min" >> $GITHUB_STEP_SUMMARY

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-10T06:36:18.759185
-image: assets/20250908T231358385--shareAI-lab--Kode--20250908T232331215--cropped.png
 ---
 
 # [shareAI-lab/Kode](https://github.com/shareAI-lab/Kode)

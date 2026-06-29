@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-10T14:40:51.260623
-image: assets/zserge_pennybase_cropped.png
 ---
 
 # [zserge/pennybase](https://github.com/zserge/pennybase)

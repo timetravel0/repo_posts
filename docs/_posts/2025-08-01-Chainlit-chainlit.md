@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-01T18:54:01.767635
-image: assets/Chainlit_chainlit_cropped.png
 ---
 
 # [Chainlit/chainlit](https://github.com/Chainlit/chainlit)

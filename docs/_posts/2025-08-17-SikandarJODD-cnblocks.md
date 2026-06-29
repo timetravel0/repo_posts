@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-17T22:30:28.672549
-image: assets/SikandarJODD_cnblocks--20250816T204919062--cropped.png
 ---
 
 # [SikandarJODD/cnblocks](https://github.com/SikandarJODD/cnblocks)

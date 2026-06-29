@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-28T01:47:36.508002
-image: assets/20250826T032034832--mercurjs--mercur--20250826T033014932--cropped.png
 ---
 
 # [mercurjs/mercur](https://github.com/mercurjs/mercur)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-26T12:09:29.297335
-image: assets/20250926T004838080--Audio-AGI--AudioSep--20250926T005543537--cropped.png
 ---
 
 # [Audio-AGI/AudioSep](https://github.com/Audio-AGI/AudioSep)

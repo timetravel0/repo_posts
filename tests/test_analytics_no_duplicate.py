@@ -7,7 +7,6 @@ HEADER = ROOT / 'docs' / '_includes' / 'header.html'
 INCLUDE = ROOT / 'docs' / '_includes' / 'analytics.html'
 
 DOMAIN = 'scripts.simpleanalyticscdn.com/latest.js'
-PIXEL = 'queue.simpleanalyticscdn.com/noscript.gif'
 
 
 def test_layout_includes_analytics_single():
@@ -20,5 +19,4 @@ def test_simpleanalytics_script_only_in_include():
         assert DOMAIN not in p.read_text(encoding='utf-8')
     inc = INCLUDE.read_text(encoding='utf-8')
     assert inc.count(DOMAIN) == 1
-    assert inc.count(PIXEL) == 1
-
+    assert 'noscript.gif' not in inc

@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const BASE = process.env.BASE || 'https://tom-doerr.github.io/repo_posts';
+const BASE = process.env.BASE || 'https://timetravel0.github.io/repo_posts';
 
 test('post page has related repos', async ({ page, request }) => {
   const resp = await request.get(BASE + '/assets/search-index.json');

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-02T13:24:12.742479
-image: assets/heroui-inc_heroui_cropped.png
 ---
 
 # [heroui-inc/heroui](https://github.com/heroui-inc/heroui)

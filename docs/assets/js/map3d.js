@@ -15,8 +15,6 @@ let dateEndInput = null;
 let dateCountOut = null;
 let dateErrorEl = null;
 let dateClearBtn = null;
-let thumbsToggle = null;
-let thumbsScaleInput = null;
 let settingsBtn = null;
 let settingsOverlay = null;
 let settingsCloseBtn = null;
@@ -48,10 +46,6 @@ let clipNearRange = null;
 let clipNearOut = null;
 let labelIndices = [], labelDirty = true, lastLabelCompute = 0;
 const labelPool = [];
-const thumbPool = [];
-const nodeThumbPool = [];
-const nodeThumbCache = new Map(); // src -> { tex, aspect, loaded, failed, disposed }
-let nodeThumbLoader = null;
 const v3 = new THREE.Vector3();
 let fly = null;
 let baseColors = null;
@@ -83,19 +77,7 @@ const PICK_THRESHOLD_MAX = 0.065;
 const NODE_BASE_R = 1.0;
 const NODE_BASE_G = 0.4;
 const NODE_BASE_B = 0.0667;
-// Node thumbnail sprites (screenshot crops rendered in 3D, on the nodes).
-const NODE_THUMB_CACHE_MAX = 64;
-// Crops should be small "on-node" markers (similar scale to point size), and naturally
-// get larger on-screen as you zoom closer (because they are true 3D sprites).
-const NODE_THUMB_WORLD = 0.02;
-const NODE_THUMB_WORLD_HI = 0.026;
-const NODE_THUMB_WORLD_MIN = 0.004;
-const NODE_THUMB_WORLD_MAX = 0.25;
-const NODE_THUMB_OPACITY = 0.92;
-const THUMB_SCALE_MIN = 0.1;
-const THUMB_SCALE_MAX = 20;
-const THUMB_SCALE_KEY = 'magi_thumb_scale_v1';
-// View tuning: near clipping plane (how close you can get before nodes/crops clip).
+// View tuning: near clipping plane.
 const CLIP_NEAR_MIN = 0.0001;
 const CLIP_NEAR_MAX = 0.2;
 const CLIP_NEAR_KEY = 'magi_clip_near_v1';
@@ -134,7 +116,6 @@ let tastePred = null; // Float32Array (n)
 let tasteUrlToEmbIdx = null; // Map(url -> emb index)
 let tasteElasticRadius = null;
 let clipNear = 0.02;
-let thumbScale = 1;
 
 const TASTE_STRENGTH_POS_MAX = 1000;
 const TASTE_STRENGTH_VAL_MAX = 1000;
@@ -188,7 +169,6 @@ async function init() {
     }
   });
   buildSearchText();
-  loadThumbScaleState();
   setupScene();
   setupInteraction();
   setupLabelsUI();
@@ -235,24 +215,6 @@ function loadClipNearState() {
     const v = raw == null ? NaN : parseFloat(raw);
     if (Number.isFinite(v)) clipNear = Math.max(CLIP_NEAR_MIN, Math.min(CLIP_NEAR_MAX, v));
   } catch (e) {}
-}
-
-function loadThumbScaleState() {
-  try {
-    const raw = localStorage.getItem(THUMB_SCALE_KEY);
-    const v = raw == null ? NaN : parseFloat(raw);
-    if (Number.isFinite(v)) thumbScale = Math.max(THUMB_SCALE_MIN, Math.min(THUMB_SCALE_MAX, v));
-  } catch (e) {}
-}
-
-function applyThumbScale(v, persist = false) {
-  const next = Math.max(THUMB_SCALE_MIN, Math.min(THUMB_SCALE_MAX, Number(v) || THUMB_SCALE_MIN));
-  thumbScale = next;
-  if (thumbsScaleInput) thumbsScaleInput.value = String(next);
-  if (persist) {
-    try { localStorage.setItem(THUMB_SCALE_KEY, String(next)); } catch (e) {}
-  }
-  labelDirty = true;
 }
 
 function fmtClipNear(v) {
@@ -687,15 +649,7 @@ function setupLabelsUI() {
       <output id="label-zoom-out">2.2</output>
     </div>
 	    <div class="row">
-	      <span>Shots</span>
-	      <label class="chk" title="Show screenshot crops on nodes (for visible labels)"><input id="thumbs-toggle" type="checkbox" checked />On</label>
-	    </div>
-	    <div class="row">
-	      <span title="Scale screenshot crop size">Crop ×</span>
-	      <input id="thumbs-scale" type="number" min="0.1" max="20" step="0.1" value="${thumbScale}" />
-	    </div>
-	    <div class="row">
-	      <span title="How close you can zoom before nodes/crops clip">Close</span>
+	      <span title="How close you can zoom before nodes clip">Close</span>
 	      <input id="clip-near" type="range" min="0.0001" max="0.2" step="0.0001" value="0.02" />
 	      <output id="clip-near-out">0.02</output>
 	    </div>
@@ -810,8 +764,6 @@ function setupLabelsUI() {
   labelZoomRow = hud.querySelector('#label-zoom-row');
   labelZoom = hud.querySelector('#label-zoom');
   labelZoomOut = hud.querySelector('#label-zoom-out');
-  thumbsToggle = hud.querySelector('#thumbs-toggle');
-  thumbsScaleInput = hud.querySelector('#thumbs-scale');
   settingsBtn = hud.querySelector('#settings-btn');
   clipNearRange = hud.querySelector('#clip-near');
   clipNearOut = hud.querySelector('#clip-near-out');
@@ -852,10 +804,6 @@ function setupLabelsUI() {
   labelModeSel.addEventListener('change', sync);
   labelNearest.addEventListener('input', sync);
   labelZoom.addEventListener('input', sync);
-  if (thumbsToggle) thumbsToggle.addEventListener('change', () => { labelDirty = true; });
-  if (thumbsScaleInput) thumbsScaleInput.addEventListener('input', () => applyThumbScale(parseFloat(thumbsScaleInput.value), true));
-  // Apply loaded/persisted value once UI exists.
-  applyThumbScale(thumbScale, false);
   if (clipNearRange) {
     clipNearRange.addEventListener('input', () => applyClipNear(parseFloat(clipNearRange.value), true));
     // Apply loaded/persisted value once UI exists.
@@ -1659,172 +1607,12 @@ function hideAllLabels() {
   for (const el of labelPool) el.style.display = 'none';
 }
 
-function ensureThumbPool(n) {
-  while (thumbPool.length < n) {
-    const wrap = document.createElement('div');
-    wrap.className = 'point-thumb';
-    wrap.style.display = 'none';
-    const img = document.createElement('img');
-    img.decoding = 'async';
-    img.loading = 'lazy';
-    wrap.appendChild(img);
-    labelsWrap.appendChild(wrap);
-    thumbPool.push({ wrap, img, src: '' });
-  }
-}
-
-function hideAllThumbs() {
-  for (const t of thumbPool) t.wrap.style.display = 'none';
-}
-
-function ensureNodeThumbPool(n) {
-  if (!scene) return;
-  if (!nodeThumbLoader) nodeThumbLoader = new THREE.TextureLoader();
-  while (nodeThumbPool.length < n) {
-    const mat = new THREE.SpriteMaterial({
-      color: 0xffffff,
-      transparent: true,
-      opacity: 0.0,
-      depthWrite: false,
-      fog: false,
-    });
-    const sprite = new THREE.Sprite(mat);
-    // Anchor at the bottom so the crop sits "on top" of the node rather than centered through it.
-    sprite.center.set(0.5, 0.0);
-    sprite.visible = false;
-    sprite.renderOrder = 3;
-    scene.add(sprite);
-    nodeThumbPool.push({ sprite, src: '' });
-  }
-}
-
-function hideAllNodeThumbs() {
-  for (const it of nodeThumbPool) it.sprite.visible = false;
-}
-
-function getNodeThumbRecord(src) {
-  if (!src) return null;
-  const existing = nodeThumbCache.get(src);
-  if (existing) return existing;
-  const rec = { tex: null, aspect: 1.6, loaded: false, failed: false, disposed: false };
-  nodeThumbCache.set(src, rec);
-  if (!nodeThumbLoader) nodeThumbLoader = new THREE.TextureLoader();
-  nodeThumbLoader.load(src, (tex) => {
-    if (rec.disposed) { try { tex.dispose(); } catch (e) {} return; }
-    try {
-      tex.colorSpace = THREE.SRGBColorSpace;
-      tex.minFilter = THREE.LinearFilter;
-      tex.magFilter = THREE.LinearFilter;
-      tex.generateMipmaps = false;
-    } catch (e) {}
-    rec.tex = tex;
-    rec.loaded = true;
-    try {
-      if (tex.image && tex.image.width && tex.image.height) {
-        rec.aspect = tex.image.width / tex.image.height;
-      }
-    } catch (e) {}
-  }, undefined, () => { rec.failed = true; });
-  return rec;
-}
-
-function trimNodeThumbCache(inUse) {
-  if (nodeThumbCache.size <= NODE_THUMB_CACHE_MAX) return;
-  for (const [src, rec] of nodeThumbCache) {
-    if (nodeThumbCache.size <= NODE_THUMB_CACHE_MAX) break;
-    if (inUse && inUse.has(src)) continue;
-    rec.disposed = true;
-    if (rec.tex) { try { rec.tex.dispose(); } catch (e) {} }
-    nodeThumbCache.delete(src);
-  }
-}
-
-function imageForIndex(i) {
-  const url = data.urls[i];
-  const meta = metaForUrl(url);
-  if (!meta) return null;
-  const raw = meta.img || meta.image || '';
-  const p = normalizePath(raw);
-  if (!p) return null;
-  return withSiteBase(p);
-}
-
-function positionThumbs(entries) {
-  const showThumbs = !!(thumbsToggle && thumbsToggle.checked);
-  if (!showThumbs || !entries || !entries.length) {
-    hideAllThumbs();
-    hideAllNodeThumbs();
-    return;
-  }
-
-  // Prefer 3D sprites "on the nodes". Keep the DOM thumbnails hidden to avoid duplication.
-  hideAllThumbs();
-
-  if (!camera || !posArr) { hideAllNodeThumbs(); return; }
-  ensureNodeThumbPool(entries.length);
-  const inUse = new Set();
-
-  let shown = 0;
-  for (let n = 0; n < entries.length; n++) {
-    const { i } = entries[n];
-    const src = imageForIndex(i);
-    if (!src) continue;
-    inUse.add(src);
-
-    const rec = getNodeThumbRecord(src);
-    const o = i * 3;
-    const xw = posArr[o], yw = posArr[o + 1], zw = posArr[o + 2];
-    if (!Number.isFinite(xw) || !Number.isFinite(yw) || !Number.isFinite(zw)) continue;
-
-    const item = nodeThumbPool[shown++];
-    const sprite = item.sprite;
-    sprite.position.set(xw, yw, zw);
-    sprite.userData.nodeIndex = i;
-
-    const w0 = (i === highlighted || i === selected) ? NODE_THUMB_WORLD_HI : NODE_THUMB_WORLD;
-    const w = THREE.MathUtils.clamp(w0 * thumbScale, NODE_THUMB_WORLD_MIN, NODE_THUMB_WORLD_MAX);
-    const aspect = (rec && Number.isFinite(rec.aspect) && rec.aspect > 0.2) ? rec.aspect : 1.6;
-    sprite.scale.set(w, w / aspect, 1);
-    // Nudge upward (screen-up) and slightly toward camera so the crop doesn't poke through the node.
-    const h = w / aspect;
-    const liftUp = THREE.MathUtils.clamp(h * 0.25, 0.001, 0.06);
-    const liftFwd = THREE.MathUtils.clamp(h * 0.12, 0.0006, 0.03);
-    sprite.position.addScaledVector(camera.up, liftUp);
-    v3.set(camera.position.x - sprite.position.x, camera.position.y - sprite.position.y, camera.position.z - sprite.position.z);
-    const len = v3.length() || 1;
-    sprite.position.x += (v3.x / len) * liftFwd;
-    sprite.position.y += (v3.y / len) * liftFwd;
-    sprite.position.z += (v3.z / len) * liftFwd;
-
-    const mat = sprite.material;
-    if (rec && rec.loaded && rec.tex && !rec.failed) {
-      if (item.src !== src) {
-        item.src = src;
-        mat.map = rec.tex;
-        mat.needsUpdate = true;
-      }
-      mat.opacity = (i === highlighted || i === selected) ? 0.98 : NODE_THUMB_OPACITY;
-      sprite.visible = true;
-    } else {
-      // Hide until texture is ready to avoid flashing white rectangles.
-      mat.opacity = 0.0;
-      sprite.visible = false;
-    }
-  }
-  for (let i = shown; i < nodeThumbPool.length; i++) nodeThumbPool[i].sprite.visible = false;
-  trimNodeThumbCache(inUse);
-}
-
 function positionLabels() {
   const { mode } = getLabelSettings();
   if (!labelsWrap || mode === 'off' || !labelIndices.length) {
     hideAllLabels();
-    hideAllThumbs();
-    hideAllNodeThumbs();
     return;
   }
-  const showThumbs = !!(thumbsToggle && thumbsToggle.checked);
-  const thumbGapPx = 6;
 
   const cam = camera.position;
   const entries = [];
@@ -1841,7 +1629,6 @@ function positionLabels() {
 
   const placed = [];
   let shown = 0;
-  const shownEntries = [];
   for (let n = 0; n < entries.length; n++) {
     const { i, pri } = entries[n];
     const text = titleForIndex(i);
@@ -1851,44 +1638,6 @@ function positionLabels() {
     if (v3.z < -1 || v3.z > 1) continue;
     let x = (v3.x * 0.5 + 0.5) * innerWidth;
     let y = (-v3.y * 0.5 + 0.5) * innerHeight;
-
-    // If crops are visible, pin the label above the crop's top edge (no overlap).
-    if (showThumbs) {
-      const src = imageForIndex(i);
-      if (src) {
-        const rec = getNodeThumbRecord(src);
-        const w0 = (i === highlighted || i === selected) ? NODE_THUMB_WORLD_HI : NODE_THUMB_WORLD;
-        const wWorld = THREE.MathUtils.clamp(w0 * thumbScale, NODE_THUMB_WORLD_MIN, NODE_THUMB_WORLD_MAX);
-        const aspect = (rec && Number.isFinite(rec.aspect) && rec.aspect > 0.2) ? rec.aspect : 1.6;
-        const hWorld = wWorld / aspect;
-
-        // Mirror the sprite positioning (bottom-anchored, lifted up + toward camera).
-        let xb = posArr[o], yb = posArr[o + 1], zb = posArr[o + 2];
-        const liftUp = THREE.MathUtils.clamp(hWorld * 0.25, 0.001, 0.06);
-        const liftFwd = THREE.MathUtils.clamp(hWorld * 0.12, 0.0006, 0.03);
-        xb += camera.up.x * liftUp;
-        yb += camera.up.y * liftUp;
-        zb += camera.up.z * liftUp;
-        const dxC = camera.position.x - xb;
-        const dyC = camera.position.y - yb;
-        const dzC = camera.position.z - zb;
-        const lenC = Math.sqrt(dxC*dxC + dyC*dyC + dzC*dzC) || 1;
-        xb += (dxC / lenC) * liftFwd;
-        yb += (dyC / lenC) * liftFwd;
-        zb += (dzC / lenC) * liftFwd;
-
-        // Bottom screen coord (x,y), then top screen coord to find crop top.
-        v3.set(xb, yb, zb).project(camera);
-        if (v3.z >= -1 && v3.z <= 1) {
-          const xBottom = (v3.x * 0.5 + 0.5) * innerWidth;
-          const yBottom = (-v3.y * 0.5 + 0.5) * innerHeight;
-          v3.set(xb + camera.up.x * hWorld, yb + camera.up.y * hWorld, zb + camera.up.z * hWorld).project(camera);
-          const yTop = (-v3.y * 0.5 + 0.5) * innerHeight;
-          x = xBottom;
-          y = Math.min(yTop, yBottom) - thumbGapPx;
-        }
-      }
-    }
 
     if (x < -40 || x > innerWidth + 40 || y < -40 || y > innerHeight + 40) continue;
 
@@ -1914,10 +1663,8 @@ function positionLabels() {
     el.style.top = `${y}px`;
     el.style.opacity = pri < 2 ? '1' : '0.85';
     el.style.display = 'block';
-    shownEntries.push({ i, x, y, pri });
   }
   for (let i = shown; i < labelPool.length; i++) labelPool[i].style.display = 'none';
-  positionThumbs(shownEntries);
 }
 
 function updatePickThreshold() {
@@ -1935,23 +1682,6 @@ function pickIndexAt(clientX, clientY) {
   mouse.y = -(clientY / Math.max(1, innerHeight)) * 2 + 1;
   updatePickThreshold();
   raycaster.setFromCamera(mouse, camera);
-
-  // If screenshot crops are visible, prefer picking the crop sprite itself so clicks
-  // select the correct node even when points are tightly clustered.
-  if (nodeThumbPool && nodeThumbPool.length) {
-    const sprites = [];
-    for (let i = 0; i < nodeThumbPool.length; i++) {
-      const s = nodeThumbPool[i].sprite;
-      if (s && s.visible) sprites.push(s);
-    }
-    if (sprites.length) {
-      const sh = raycaster.intersectObjects(sprites, false);
-      if (sh && sh.length) {
-        const idx = sh[0] && sh[0].object && sh[0].object.userData ? sh[0].object.userData.nodeIndex : null;
-        if (Number.isFinite(idx)) return idx;
-      }
-    }
-  }
 
   const hits = raycaster.intersectObject(points);
   if (!hits || hits.length <= 0) return -1;

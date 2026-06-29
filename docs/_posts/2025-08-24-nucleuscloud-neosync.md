@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-24T23:06:36.428259
-image: assets/20250823T013740065--nucleuscloud--neosync--20250823T014028560--cropped.png
 ---
 
 # [nucleuscloud/neosync](https://github.com/nucleuscloud/neosync)

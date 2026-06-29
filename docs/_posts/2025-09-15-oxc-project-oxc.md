@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-15T05:30:41.622259
-image: assets/20250915T021113394--oxc-project--oxc--20250915T022747045--cropped.png
 ---
 
 # [oxc-project/oxc](https://github.com/oxc-project/oxc)

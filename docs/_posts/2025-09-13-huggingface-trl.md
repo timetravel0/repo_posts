@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-13T19:54:33.368167
-image: assets/20250912T003507404--huggingface--trl--20250912T003951459--cropped.png
 ---
 
 # [huggingface/trl](https://github.com/huggingface/trl)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-10T16:11:40.620438
-image: assets/anysphere_priompt_cropped.png
 ---
 
 # [anysphere/priompt](https://github.com/anysphere/priompt)

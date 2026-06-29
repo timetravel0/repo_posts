@@ -16,16 +16,13 @@ def test_scroll_margin_top_present():
 def test_related_block_liquid_present():
     html = LAYOUT.read_text(encoding='utf-8')
     assert 'site.data.related' in html
-    assert 'Related repos' in html
+    assert 'Related links' in html
 
 
-def test_home_card_image_links_to_post_page():
-    # After extracting to include, check include content instead
+def test_home_card_links_to_post_page_without_image():
     html = POST_CARD.read_text(encoding='utf-8')
-    assert 'class="post-image-link"' in html
-    # Accept either post.url or include.post.url depending on location
-    assert ('href="{{ post.url | relative_url }}"' in html) or (
-        'href="{{ include.post.url | relative_url }}"' in html)
+    assert 'class="post-image-link"' not in html
+    assert 'href="{{ include.post.url | relative_url }}"' in html
 
 
 def test_search_js_keys_and_highlight_logic_present():

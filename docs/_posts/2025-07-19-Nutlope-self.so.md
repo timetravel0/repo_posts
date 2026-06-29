@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-19T08:03:51.305535
-image: assets/Nutlope_self.so_cropped.png
 ---
 
 # [Nutlope/self.so](https://github.com/Nutlope/self.so)

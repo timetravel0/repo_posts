@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-02T22:41:13.862971
-image: assets/chrishayuk_mcp-cli_cropped.png
 ---
 
 # [chrishayuk/mcp-cli](https://github.com/chrishayuk/mcp-cli)

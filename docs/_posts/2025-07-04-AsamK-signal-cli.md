@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-04T07:46:05.234637
-image: assets/AsamK_signal-cli_cropped.png
 ---
 
 # [AsamK/signal-cli](https://github.com/AsamK/signal-cli)

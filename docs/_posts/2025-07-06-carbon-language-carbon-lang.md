@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-06T17:16:14.752723
-image: assets/carbon-language_carbon-lang_cropped.png
 ---
 
 # [carbon-language/carbon-lang](https://github.com/carbon-language/carbon-lang)

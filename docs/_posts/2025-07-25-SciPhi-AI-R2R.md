@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-25T23:01:53.501805
-image: assets/SciPhi-AI_R2R_cropped.png
 ---
 
 # [SciPhi-AI/R2R](https://github.com/SciPhi-AI/R2R)

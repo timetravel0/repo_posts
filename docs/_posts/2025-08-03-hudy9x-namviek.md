@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-03T00:12:11.073627
-image: assets/hudy9x_namviek_cropped.png
 ---
 
 # [hudy9x/namviek](https://github.com/hudy9x/namviek)

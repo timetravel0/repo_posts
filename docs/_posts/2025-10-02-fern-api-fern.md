@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-02T22:10:09.515027
-image: assets/20251001T205050256--fern-api--fern--20251001T205534900--cropped.png
 ---
 
 # [fern-api/fern](https://github.com/fern-api/fern)

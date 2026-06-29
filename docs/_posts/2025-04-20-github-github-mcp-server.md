@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-04-20T05:56:09.499728
-image: assets/github_github-mcp-server_cropped.png
 ---
 
 # [github/github-mcp-server](https://github.com/github/github-mcp-server)

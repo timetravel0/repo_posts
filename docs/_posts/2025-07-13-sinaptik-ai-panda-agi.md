@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-13T10:11:06.582653
-image: assets/sinaptik-ai_panda-agi_cropped.png
 ---
 
 # [sinaptik-ai/panda-agi](https://github.com/sinaptik-ai/panda-agi)

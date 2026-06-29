@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-03T20:40:16.777203
-image: assets/TauricResearch_TradingAgents_cropped.png
 ---
 
 # [TauricResearch/TradingAgents](https://github.com/TauricResearch/TradingAgents)

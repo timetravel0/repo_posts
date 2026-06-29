@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-19T23:28:57.371813
-image: assets/20250919T023652208--microsoft--LoRA--20250919T025030065--cropped.png
 ---
 
 # [microsoft/LoRA](https://github.com/microsoft/LoRA)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-18T18:10:09.218235
-image: assets/j3ssie_osmedeus--20250817T082241491--cropped.png
 ---
 
 # [j3ssie/osmedeus](https://github.com/j3ssie/osmedeus)

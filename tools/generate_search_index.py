@@ -2,11 +2,12 @@
 """
 Builds a tiny client-side search index at docs/assets/search-index.json.
 Fields per entry:
-  t: title + owner/repo (lowercased, for substring search)
+  t: title + source URL + description (lowercased, for substring search)
   u: post URL (permalink)
   d: yyyy-mm-dd
   title: original title (for rendering)
-  img: screenshot image path (optional)
+  s: short description
+  x: external source URL (optional for legacy posts)
 """
 from __future__ import annotations
 from pathlib import Path
@@ -21,26 +22,37 @@ def _url(stem: str) -> str:
     return f"/{y}/{m}/{d}/{rest}.html"
 
 def _extract(md: str) -> str:
+    value = _frontmatter(md, "title")
+    if value:
+        return value
     m = re.search(r"^#\s+(.+)$", md, re.M)
     return m.group(1).strip() if m else ""
 
 def _desc(md: str) -> str:
+    value = _frontmatter(md, "description")
+    if value:
+        return value[:160]
     # First non-heading, non-empty line after the H1
     m = re.search(r"^#\s+.+$(?:\r?\n)+([^#\n][^\n]+)", md, re.M)
     return (m.group(1).strip() if m else "")[:160]
 
-def _image(md: str) -> str:
-    m = re.search(r"(?m)^image:\s*([^\n]+)\s*$", md)
+def _frontmatter(md: str, key: str) -> str:
+    m = re.search(rf"(?m)^{re.escape(key)}:\s*(.+?)\s*$", md)
     if not m:
         return ""
-    v = m.group(1).strip().strip('"').strip("'")
-    if not v:
-        return ""
-    # Posts store `image: assets/...`; keep the index baseurl-free and prefix baseurl client-side.
-    v = v.lstrip('/')
-    if v.startswith('assets/'):
-        return '/' + v
-    return '/' + v
+    raw = m.group(1).strip()
+    try:
+        value = json.loads(raw)
+    except json.JSONDecodeError:
+        value = raw.strip('"').strip("'")
+    return value if isinstance(value, str) else ""
+
+def _external_url(md: str) -> str:
+    value = _frontmatter(md, "external_url")
+    if value:
+        return value
+    m = re.search(r"\]\(\s*<?(https?://[^)\s>]+)>?\s*\)", md, re.I)
+    return m.group(1) if m else ""
 
 def main() -> None:
     rows = []
@@ -48,18 +60,17 @@ def main() -> None:
         stem = p.stem
         md = p.read_text(encoding='utf-8', errors='ignore')
         title = _extract(md) or stem
-        owner_repo = stem.split('-', 3)[-1]
         desc = _desc(md)
+        external_url = _external_url(md)
         row = {
-            't': (title + ' ' + owner_repo + ' ' + desc).lower(),
+            't': (title + ' ' + external_url + ' ' + desc).lower(),
             'u': _url(stem),
             'd': '-'.join(stem.split('-', 3)[:3]),
             'title': title,
             's': desc,
         }
-        img = _image(md)
-        if img:
-            row['img'] = img
+        if external_url:
+            row['x'] = external_url
         rows.append(row)
     OUT.write_text(json.dumps(rows, ensure_ascii=False, separators=(',',':')), encoding='utf-8')
     print(f"Wrote {OUT} with {len(rows)} entries")

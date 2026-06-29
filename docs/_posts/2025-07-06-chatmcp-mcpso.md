@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-06T13:44:22.558967
-image: assets/chatmcp_mcpso_cropped.png
 ---
 
 # [chatmcp/mcpso](https://github.com/chatmcp/mcpso)

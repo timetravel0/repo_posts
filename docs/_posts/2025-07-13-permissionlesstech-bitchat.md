@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-13T14:43:18.722484
-image: assets/permissionlesstech_bitchat_cropped.png
 ---
 
 # [permissionlesstech/bitchat](https://github.com/permissionlesstech/bitchat)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-25T16:18:28.862199
-image: assets/NeoFreeBird_app_20251023_215858_745_20251025_021738_3dcef3--20251025T041824876--cropped.png
 ---
 
 # [NeoFreeBird/app](https://github.com/NeoFreeBird/app/)

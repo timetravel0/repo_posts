@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-02T10:08:54.876921
-image: assets/20250831T020916167--sczhou--CodeFormer--20250831T025836897--cropped.png
 ---
 
 # [sczhou/CodeFormer](https://github.com/sczhou/CodeFormer)

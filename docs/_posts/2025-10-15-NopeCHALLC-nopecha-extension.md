@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-15T03:32:20.925668
-image: assets/20251015T010745905--NopeCHALLC--nopecha-extension--20251015T011140532--cropped.png
 ---
 
 # [NopeCHALLC/nopecha-extension](https://github.com/NopeCHALLC/nopecha-extension)

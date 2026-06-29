@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-10-16T22:21:24.311205
-image: assets/20251016T074711770--superagent-ai--reag--20251016T075818390--cropped.png
 ---
 
 # [superagent-ai/reag](https://github.com/superagent-ai/reag)

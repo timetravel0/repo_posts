@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-09T12:57:40.640801
-image: assets/yosebyte_nodepass_cropped.png
 ---
 
 # [yosebyte/nodepass](https://github.com/yosebyte/nodepass)

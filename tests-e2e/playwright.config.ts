@@ -5,7 +5,7 @@ export default defineConfig({
   retries: 1,
   use: {
     headless: true,
-    baseURL: process.env.BASE || 'https://tom-doerr.github.io/repo_posts',
+    baseURL: process.env.BASE || 'https://timetravel0.github.io/repo_posts',
   },
 });
 

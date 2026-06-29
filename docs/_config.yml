@@ -1,13 +1,13 @@
 title: MAGI//ARCHIVE
-description: Discovered repositories from the open source frontier
-repository: tom-doerr/repo_posts
+description: A searchable archive of links from across the web
+repository: timetravel0/repo_posts
 future: true
 baseurl: "/repo_posts"
-url: "https://tom-doerr.github.io"
+url: "https://timetravel0.github.io"
 remote_theme: pages-themes/minimal@v0.2.0
 author:
-  name: Tom Doerr
-  url: https://github.com/tom-doerr
+  name: timetravel0
+  url: https://github.com/timetravel0
 plugins:
   - jekyll-remote-theme
   - jekyll-relative-links

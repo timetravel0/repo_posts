@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-08-12T06:22:48.171641
-image: assets/20250810T070318--analogdotnow--Analog--20250811T054015--cropped.png
 ---
 
 # [analogdotnow/Analog](https://github.com/analogdotnow/Analog)

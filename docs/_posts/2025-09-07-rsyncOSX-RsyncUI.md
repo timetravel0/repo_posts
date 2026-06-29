@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-07T08:23:44.634681
-image: assets/rsyncOSX_RsyncUI--20250906T221452092--cropped.png
 ---
 
 # [rsyncOSX/RsyncUI](https://github.com/rsyncOSX/RsyncUI)

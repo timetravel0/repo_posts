@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-09-20T08:59:43.772882
-image: assets/20250915T223107765--Byron--dua-cli--20250920T034804333--cropped.png
 ---
 
 # [Byron/dua-cli](https://github.com/Byron/dua-cli)

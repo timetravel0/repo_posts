@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-11T09:51:08.071889
-image: assets/hyperdxio_hyperdx_cropped.png
 ---
 
 # [hyperdxio/hyperdx](https://github.com/hyperdxio/hyperdx)

@@ -1,7 +1,6 @@
 ---
 layout: default
 date: 2025-07-10T03:35:15.126578
-image: assets/LubomirGeorgiev_cloudflare-workers-nextjs-saas-template_cropped.png
 ---
 
 # [LubomirGeorgiev/cloudflare-workers-nextjs-saas-template](https://github.com/LubomirGeorgiev/cloudflare-workers-nextjs-saas-template)
